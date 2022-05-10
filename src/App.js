@@ -1,22 +1,22 @@
-import logo from './logo.svg';
+
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import './App.css';
+import CustomQuestionLoader from './Components/Common/CustomQuestionLoader';
 
 function App() {
+  const [questionsData, setQuestionsData] = useState([]);
+  useEffect(()=>{
+    axios.get("http://localhost:3000/questions.json").then((response)=>{
+      console.log(response);
+      setQuestionsData(response.data);
+    })
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <CustomQuestionLoader data={questionsData} />
       </header>
     </div>
   );

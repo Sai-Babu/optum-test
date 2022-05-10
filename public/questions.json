@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "type": "Multiple",
+        "question": "Do you have any preferences",
+        "options": [
+            "Aviod1",
+            "Aviod2",
+            "Aviod3"
+        ]
+
+    },
+    {
+        "id": 2,
+        "type": "Slider",
+        "question": "Selection Weight"
+    }
+]
